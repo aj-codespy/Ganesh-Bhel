@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import { Calendar, User, ArrowRight } from "lucide-react"; // Added ArrowRight
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button"; // Import buttonVariants
 
 // Sample blog post data - replace with actual data fetching
 const blogPosts = [
@@ -84,11 +86,16 @@ export default function BlogPage() {
               <p className="text-sm text-foreground/80 line-clamp-3">{post.excerpt}</p>
             </CardContent>
             <CardFooter className="pt-0 pb-4 sm:pb-5"> {/* Responsive padding */}
-              <Button variant="link" asChild className="p-0 h-auto text-accent font-medium group-hover:underline text-sm"> {/* Responsive text */}
-                <Link href={`/blog/${post.slug}`} className="flex items-center">
+                {/* Removed Button asChild wrapper, applied styles directly to Link */}
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className={cn(
+                      buttonVariants({ variant: "link" }),
+                      "p-0 h-auto text-accent font-medium group-hover:underline text-sm flex items-center" // Added flex items-center
+                  )}
+                >
                     Read More <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
-              </Button>
             </CardFooter>
           </Card>
         ))}
