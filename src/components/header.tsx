@@ -23,7 +23,7 @@ export function Header() {
         <Link href="/" className="flex items-center space-x-2 group" aria-label="Ganesh Bhel Home">
           {/* Icon */}
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6 sm:h-7 sm:w-7 text-primary group-hover:scale-110 transition-transform duration-200">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
           </svg>
           {/* Brand Name */}
           <span className="font-bold text-base sm:text-lg md:text-xl font-heading text-primary group-hover:text-accent transition-colors duration-200">Ganesh Bhel</span>
@@ -37,8 +37,8 @@ export function Header() {
               href={item.href}
               className="text-sm font-medium text-foreground/70 transition-colors hover:text-primary relative group/nav"
             >
-              <span>{item.label}</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover/nav:w-full"></span> {/* Underline effect */}
+               <span>{item.label}</span>
+               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover/nav:w-full"></span> {/* Underline effect */}
             </Link>
           ))}
         </nav>
@@ -70,14 +70,16 @@ export function Header() {
               <nav className="flex-1 overflow-y-auto grid gap-1 p-4 text-base font-medium mt-2">
                 {navItems.map((item, index) => (
                   <React.Fragment key={item.href}>
-                    {/* Removed asChild from SheetClose to avoid potential conflicts with Link */}
-                    <SheetClose>
+                    <SheetClose asChild>
                       <Link
                         href={item.href}
                         className="flex items-center justify-between rounded-md px-3 py-2.5 text-sidebar-foreground/80 transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground active:bg-sidebar-accent/90 w-full"
                       >
-                        <span>{item.label}</span>
-                        <ChevronRight className="h-4 w-4 text-muted-foreground/70 ml-auto" />
+                        {/* Wrap content in a single span to ensure SheetClose has only one child */}
+                        <span className="flex justify-between items-center w-full">
+                           <span>{item.label}</span>
+                           <ChevronRight className="h-4 w-4 text-muted-foreground/70" />
+                        </span>
                       </Link>
                     </SheetClose>
                      {index < navItems.length - 1 && <Separator className="my-1 bg-sidebar-border/60"/>}
