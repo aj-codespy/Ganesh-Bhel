@@ -75,8 +75,11 @@ export function Header() {
                          href={item.href}
                          className="flex items-center justify-between rounded-md px-3 py-2.5 text-sidebar-foreground/80 transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground active:bg-sidebar-accent/90 w-full"
                        >
-                         <span>{item.label}</span>
-                         <ChevronRight className="h-4 w-4 text-muted-foreground/70 ml-auto" />
+                         {/* Wrap the multiple children in a Fragment */}
+                         <>
+                           <span>{item.label}</span>
+                           <ChevronRight className="h-4 w-4 text-muted-foreground/70 ml-auto" />
+                         </>
                        </Link>
                      </SheetClose>
                      {index < navItems.length - 1 && <Separator className="my-1 bg-sidebar-border/60"/>}
