@@ -75,10 +75,10 @@ export function Header() {
                         href={item.href}
                         className="flex items-center justify-between rounded-md px-3 py-2.5 text-sidebar-foreground/80 transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground active:bg-sidebar-accent/90 w-full"
                       >
-                        {/* Wrap content in a single span to ensure SheetClose has only one child */}
+                        {/* Wrap label and icon in a single span */}
                         <span className="flex justify-between items-center w-full">
-                           <span>{item.label}</span>
-                           <ChevronRight className="h-4 w-4 text-muted-foreground/70" />
+                           <span>{item.label}</span> {/* Optional: wrap label in span if needed for styling */}
+                           <ChevronRight className="h-4 w-4 text-muted-foreground/70 ml-auto" />
                         </span>
                       </Link>
                     </SheetClose>
