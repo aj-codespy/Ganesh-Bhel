@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { MapPin, Phone, Mail } from "lucide-react";
 import Link from "next/link";
+import Image from 'next/image'; // Import Image component
 
 export default function ContactPage() {
   return (
