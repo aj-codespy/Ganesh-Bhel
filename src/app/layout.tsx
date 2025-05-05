@@ -30,7 +30,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfairDisplay.variable} ${openSans.variable}`}>
-      <body className={cn("min-h-screen bg-background font-sans antialiased", openSans.className)}>
+      {/* Apply font-body directly here for clarity, though font-sans in globals.css also works */}
+      <body className={cn("min-h-screen bg-background antialiased", openSans.variable)}>
         <div className="relative flex min-h-screen flex-col">
           <Header />
           <main className="flex-1 container mx-auto px-4 py-8">

@@ -120,12 +120,12 @@ h1, h2, h3, h4, h5, h6 {
   }
   body {
     @apply bg-background text-foreground;
-    /* Apply body font globally */
-    font-family: var(--font-body);
+    /* Apply body font globally using Tailwind's default sans font which maps to --font-body */
+    @apply font-sans;
   }
   h1, h2, h3, h4, h5, h6 {
-    /* Apply heading font to all heading levels */
-    @apply font-heading;
+    /* Apply heading font directly using the CSS variable */
+    font-family: var(--font-heading);
   }
 }
 
