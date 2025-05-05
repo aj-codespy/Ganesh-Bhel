@@ -38,7 +38,7 @@ export function Header() {
               className="text-sm font-medium text-foreground/70 transition-colors hover:text-primary relative group/nav"
             >
               <span>{item.label}</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover/nav:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover/nav:w-full"></span> {/* Underline effect */}
             </Link>
           ))}
         </nav>
@@ -70,18 +70,16 @@ export function Header() {
               <nav className="flex-1 overflow-y-auto grid gap-1 p-4 text-base font-medium mt-2">
                 {navItems.map((item, index) => (
                   <React.Fragment key={item.href}>
-                     <SheetClose asChild>
-                       <Link
-                         href={item.href}
-                         className="flex items-center justify-between rounded-md px-3 py-2.5 text-sidebar-foreground/80 transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground active:bg-sidebar-accent/90 w-full"
-                       >
-                         {/* Wrap the multiple children in a Fragment */}
-                         <>
-                           <span>{item.label}</span>
-                           <ChevronRight className="h-4 w-4 text-muted-foreground/70 ml-auto" />
-                         </>
-                       </Link>
-                     </SheetClose>
+                    {/* Removed asChild from SheetClose to avoid potential conflicts with Link */}
+                    <SheetClose>
+                      <Link
+                        href={item.href}
+                        className="flex items-center justify-between rounded-md px-3 py-2.5 text-sidebar-foreground/80 transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground active:bg-sidebar-accent/90 w-full"
+                      >
+                        <span>{item.label}</span>
+                        <ChevronRight className="h-4 w-4 text-muted-foreground/70 ml-auto" />
+                      </Link>
+                    </SheetClose>
                      {index < navItems.length - 1 && <Separator className="my-1 bg-sidebar-border/60"/>}
                   </React.Fragment>
                 ))}
