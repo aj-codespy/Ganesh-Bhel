@@ -26,13 +26,13 @@ export default function OrderPage() {
                 <Button asChild size="lg" className="bg-red-600 hover:bg-red-700 text-white rounded-full flex-1 shadow-md hover:shadow-lg transition-all text-sm sm:text-base py-2.5 sm:py-3"> {/* Responsive text/padding */}
                     {/* Replace with actual Zomato link */}
                     <Link href="https://www.zomato.com/pune/ganesh-bhel-fc-road" target="_blank" rel="noopener noreferrer">
-                      <span>Order on Zomato</span> {/* Wrap content */}
+                      Order on Zomato
                     </Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="border-orange-500 text-orange-600 hover:bg-orange-50 rounded-full flex-1 shadow-md hover:shadow-lg transition-all text-sm sm:text-base py-2.5 sm:py-3"> {/* Responsive text/padding */}
                      {/* Replace with actual Swiggy link */}
                     <Link href="https://www.swiggy.com/restaurants/ganesh-bhel-fc-road-shivaji-nagar-pune-18393" target="_blank" rel="noopener noreferrer">
-                      <span>Order on Swiggy</span> {/* Wrap content */}
+                      Order on Swiggy
                     </Link>
                 </Button>
             </div>
@@ -48,10 +48,8 @@ export default function OrderPage() {
           <CardContent className="space-y-4 sm:space-y-5 flex-grow flex flex-col justify-center items-center p-4 sm:p-6">
             <p className="text-sm sm:text-base text-foreground/80 max-w-sm">Prefer to pick up your order yourself? Find your nearest store, place your order online (coming soon!), or simply walk in.</p>
             <Button asChild size="lg" variant="secondary" className="rounded-full shadow-md hover:shadow-lg transition-all px-6 sm:px-8 text-sm sm:text-base py-2.5 sm:py-3"> {/* Responsive padding/text */}
-              <Link href="/store-locator">
-                 <span className="flex items-center"> {/* Wrap content */}
-                    Find a Store <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5"/>
-                 </span>
+              <Link href="/store-locator" className="flex items-center">
+                 Find a Store <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5"/>
               </Link>
             </Button>
              <p className="text-xs text-muted-foreground pt-1 sm:pt-0">(Online ordering for pickup coming soon)</p> {/* Adjusted padding */}

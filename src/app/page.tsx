@@ -5,6 +5,11 @@ import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowRight, ShoppingCart, Utensils, MapPin } from 'lucide-react'; // Import relevant icons
 
+// Corrected StoreIcon import path if necessary, assuming it's a custom icon
+// import { Store as StoreIcon } from 'lucide-react'; // If using Lucide
+// If Store is a custom SVG or component, import it correctly:
+// import StoreIcon from '@/components/icons/store'; // Example custom icon path
+
 export default function Home() {
   const flagshipProducts = [
     { id: 1, name: 'Classic Bhel Puri', imageUrl: '/images/bhel-puri.jpg', description: 'The original taste of Pune street food.', dataAiHint: 'bhel puri indian street food bowl delicious' },
@@ -12,6 +17,27 @@ export default function Home() {
     { id: 3, name: 'Cheese Sev Puri', imageUrl: '/images/sev-puri.jpg', description: 'A cheesy, modern twist on a classic chaat.', dataAiHint: 'sev puri cheese indian street food delicious' },
     { id: 4, name: 'Refreshing Dahi Puri', imageUrl: '/images/dahi-puri.jpg', description: 'Cool yogurt meets crispy puris & sweet chutney.', dataAiHint: 'dahi puri indian street food yogurt snack refreshing' },
   ];
+
+  // Inline SVG for Store icon if not available in lucide-react
+  const StoreIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M3 21h18" />
+      <path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16" />
+      <path d="M9 21v-5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v5" />
+      <path d="M7 10h.01" />
+      <path d="M17 10h.01" />
+    </svg>
+  );
+
 
   return (
     <div className="space-y-16 md:space-y-24"> {/* Increased spacing */}
@@ -36,12 +62,10 @@ export default function Home() {
               <p className="text-lg sm:text-xl md:text-2xl text-foreground/90 mb-8 md:mb-10 max-w-2xl mx-auto"> {/* Responsive text size */}
                 Since 1978, Ganesh Bhel has been serving authentic Pune street food with a commitment to quality and hygiene.
               </p>
-              <Button size="lg" asChild className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-4 text-lg md:text-xl rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"> {/* Larger button, hover effect */}
-                <Link href="/menu">
-                  <span className="flex items-center"> {/* Wrap content */}
-                    Explore Our Menu <Utensils className="ml-2 h-5 w-5 md:h-6 md:w-6" /> {/* Changed icon, responsive size */}
-                  </span>
-                </Link>
+              <Button size="lg" asChild className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-4 text-lg md:text-xl rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                 <Link href="/menu" className="flex items-center">
+                    Explore Our Menu <Utensils className="ml-2 h-5 w-5 md:h-6 md:w-6" />
+                 </Link>
               </Button>
           </div>
       </section>
@@ -59,11 +83,9 @@ export default function Home() {
           From a humble street cart to a beloved brand, Ganesh Bhel pioneered "Pani Puri" and continues to innovate while preserving authentic flavors. Discover our story of passion, quality, and community.
         </p>
         <Button variant="outline" asChild className="rounded-full px-8 py-3 border-primary text-primary hover:bg-primary/10 hover:text-primary hover:scale-105 transition-transform duration-200 text-base md:text-lg shadow-sm">
-          <Link href="/about">
-             <span className="flex items-center"> {/* Wrap content */}
+           <Link href="/about" className="flex items-center">
                 Read Our Full Story <ArrowRight className="ml-2 h-5 w-5"/>
-             </span>
-          </Link>
+           </Link>
         </Button>
       </section>
 
@@ -83,8 +105,7 @@ export default function Home() {
         <Link href="/franchise" className="block p-6 md:p-8 bg-card rounded-lg card-hover-effect group border border-transparent hover:border-accent transition-all duration-300">
           {/* Wrap content in a div */}
           <div>
-             {/* Changed icon */}
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mx-auto h-10 w-10 sm:h-12 sm:w-12 text-secondary mb-4 group-hover:text-accent transition-colors duration-300"><path d="M3 21h18"/><path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/><path d="M9 21v-5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v5"/><path d="M7 10h.01"/><path d="M17 10h.01"/></svg>
+             <StoreIcon className="mx-auto h-10 w-10 sm:h-12 sm:w-12 text-secondary mb-4 group-hover:text-accent transition-colors duration-300" />
             <h3 className="text-xl md:text-2xl font-semibold mb-2 md:mb-3 font-heading text-primary group-hover:text-accent transition-colors duration-300">Franchise With Us</h3> {/* Responsive heading size */}
             <p className="text-sm md:text-base text-foreground/70 mb-3 md:mb-4">Join the Ganesh Bhel family and start your own success story.</p> {/* Responsive text size */}
              <span className="text-accent font-medium group-hover:underline flex items-center justify-center text-sm md:text-base">

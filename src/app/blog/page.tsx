@@ -96,7 +96,7 @@ export default function BlogPage() {
 
        {/* Placeholder for pagination */}
        <div className="text-center mt-8 md:mt-10"> {/* Adjusted margin */}
-         <Button variant="outline" disabled className="rounded-full">Load More Posts</Button>
+         <Button variant="outline" disabled className="rounded-full"><span>Load More Posts</span></Button>
        </div>
     </div>
   );
