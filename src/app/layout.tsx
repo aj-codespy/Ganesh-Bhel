@@ -29,8 +29,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${playfairDisplay.variable} ${openSans.variable}`}>
-      <body className={cn("min-h-screen bg-background antialiased", openSans.variable)}>
+    <html lang="en" className={`${playfairDisplay.variable} ${openSans.variable}`} suppressHydrationWarning>
+      <body className={cn("min-h-screen bg-background antialiased", openSans.variable)} suppressHydrationWarning>
         <div className="relative flex min-h-screen flex-col">
           <Header />
           {/* Adjusted padding for better mobile view */}
