@@ -31,17 +31,17 @@ export function ProductCarousel({ products }: ProductCarouselProps) {
         align: "start",
         loop: true,
       }}
-      className="w-full max-w-5xl mx-auto" // Increased max-width slightly
+      className="w-full max-w-xs sm:max-w-2xl md:max-w-4xl lg:max-w-5xl mx-auto" // Responsive max-width
     >
-      <CarouselContent className="-ml-4"> {/* Ensure negative margin matches item padding */}
+      <CarouselContent className="-ml-4">
+        {/* Adjusted basis for better mobile view */}
         {products.map((product) => (
-          <CarouselItem key={product.id} className="md:basis-1/2 lg:basis-1/3 pl-4"> {/* Added padding-left */}
-            <div className="p-1 h-full"> {/* Ensure div takes full height for consistent alignment */}
-              <Card className="overflow-hidden card-hover-effect h-full flex flex-col group"> {/* Applied new hover effect, full height, flex column */}
-                <CardContent className="flex flex-col items-center justify-start p-0 flex-grow"> {/* Adjusted flex properties */}
-                  <div className="relative w-full h-52"> {/* Increased height slightly */}
+          <CarouselItem key={product.id} className="basis-4/5 sm:basis-1/2 lg:basis-1/3 pl-4">
+            <div className="p-1 h-full">
+              <Card className="overflow-hidden card-hover-effect h-full flex flex-col group">
+                <CardContent className="flex flex-col items-center justify-start p-0 flex-grow">
+                  <div className="relative w-full h-44 sm:h-52"> {/* Responsive height */}
                      <Image
-                        // Use placeholder images
                         src={`https://picsum.photos/seed/${product.id}/400/300`}
                         alt={product.name}
                         layout="fill"
@@ -50,9 +50,9 @@ export function ProductCarousel({ products }: ProductCarouselProps) {
                         data-ai-hint={product.dataAiHint}
                       />
                   </div>
-                  <div className="p-4 text-center mt-auto w-full"> {/* Pushed text to bottom */}
-                    <h3 className="text-lg font-semibold font-heading text-primary">{product.name}</h3>
-                    <p className="text-sm text-muted-foreground mt-1">{product.description}</p>
+                  <div className="p-3 sm:p-4 text-center mt-auto w-full"> {/* Responsive padding */}
+                    <h3 className="text-base sm:text-lg font-semibold font-heading text-primary">{product.name}</h3> {/* Responsive text */}
+                    <p className="text-xs sm:text-sm text-muted-foreground mt-1">{product.description}</p> {/* Responsive text */}
                   </div>
                 </CardContent>
               </Card>
@@ -60,8 +60,9 @@ export function ProductCarousel({ products }: ProductCarouselProps) {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="absolute left-[-60px] top-1/2 -translate-y-1/2 hidden xl:inline-flex bg-background/80 hover:bg-accent text-accent-foreground hover:text-accent-foreground" /> {/* Adjusted position and styling */}
-      <CarouselNext className="absolute right-[-60px] top-1/2 -translate-y-1/2 hidden xl:inline-flex bg-background/80 hover:bg-accent text-accent-foreground hover:text-accent-foreground" /> {/* Adjusted position and styling */}
+      {/* Hide buttons on smaller screens, adjust positioning */}
+      <CarouselPrevious className="absolute left-[-10px] sm:left-[-50px] top-1/2 -translate-y-1/2 hidden sm:inline-flex bg-background/80 hover:bg-accent text-accent-foreground hover:text-accent-foreground h-8 w-8 sm:h-10 sm:w-10" />
+      <CarouselNext className="absolute right-[-10px] sm:right-[-50px] top-1/2 -translate-y-1/2 hidden sm:inline-flex bg-background/80 hover:bg-accent text-accent-foreground hover:text-accent-foreground h-8 w-8 sm:h-10 sm:w-10" />
     </Carousel>
   )
 }

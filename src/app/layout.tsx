@@ -33,8 +33,8 @@ export default function RootLayout({
       <body className={cn("min-h-screen bg-background antialiased", openSans.variable)}>
         <div className="relative flex min-h-screen flex-col">
           <Header />
-          {/* Adjusted main padding: more vertical, slightly less horizontal */}
-          <main className="flex-1 container mx-auto px-4 md:px-6 py-10 md:py-12">
+          {/* Adjusted padding for better mobile view */}
+          <main className="flex-1 container mx-auto px-4 sm:px-6 py-8 sm:py-12">
             {children}
           </main>
           <Footer />

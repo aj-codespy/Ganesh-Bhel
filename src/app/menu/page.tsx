@@ -31,23 +31,23 @@ const menuCategories = [
 
 export default function MenuPage() {
   return (
-    <div className="space-y-16 md:space-y-20"> {/* Increased spacing */}
+    <div className="space-y-12 md:space-y-20"> {/* Adjusted base spacing */}
       <section className="text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 font-heading text-secondary">Our Menu</h1>
-        <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 font-heading text-secondary">Our Menu</h1> {/* Responsive heading */}
+        <p className="text-base sm:text-lg text-foreground/80 max-w-2xl mx-auto px-2 sm:px-0"> {/* Responsive text, padding */}
           Explore our wide range of authentic and innovative chaats, made with the freshest ingredients and utmost hygiene.
         </p>
       </section>
 
       {menuCategories.map((category) => (
         <section key={category.name}>
-          <h2 className="text-3xl font-bold mb-8 font-heading text-primary">{category.name}</h2> {/* Increased margin */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> {/* Increased gap */}
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6 md:mb-8 font-heading text-primary">{category.name}</h2> {/* Responsive heading */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"> {/* Responsive grid and gap */}
             {category.items.map((item) => (
-              <Card key={item.name} className="overflow-hidden card-hover-effect group flex flex-col"> {/* Applied hover effect, group, flex */}
-                 <div className="relative w-full h-48"> {/* Increased height */}
+              <Card key={item.name} className="overflow-hidden card-hover-effect group flex flex-col">
+                 <div className="relative w-full h-40 sm:h-48"> {/* Responsive height */}
                     <Image
-                       src={`https://picsum.photos/seed/${item.name.replace(/\s+/g, '-')}/400/300`} // Slightly larger image request
+                       src={`https://picsum.photos/seed/${item.name.replace(/\s+/g, '-')}/400/300`}
                        alt={item.name}
                        layout="fill"
                        objectFit="cover"
@@ -55,16 +55,14 @@ export default function MenuPage() {
                        data-ai-hint={item.dataAiHint}
                     />
                  </div>
-                <CardContent className="p-5 flex-grow flex flex-col justify-between"> {/* Increased padding, flex grow */}
+                <CardContent className="p-4 sm:p-5 flex-grow flex flex-col justify-between"> {/* Responsive padding */}
                   <div>
-                      <div className="flex justify-between items-start mb-2"> {/* Increased margin */}
-                        <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-200">{item.name}</h3> {/* Hover color change */}
-                        <span className="text-lg font-semibold text-accent whitespace-nowrap ml-4">{item.price}</span>
+                      <div className="flex justify-between items-start mb-1.5 sm:mb-2"> {/* Responsive margin */}
+                        <h3 className="text-base sm:text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-200 leading-tight">{item.name}</h3> {/* Responsive text, tighter leading */}
+                        <span className="text-base sm:text-lg font-semibold text-accent whitespace-nowrap ml-3 sm:ml-4">{item.price}</span> {/* Responsive text/margin */}
                       </div>
-                      <p className="text-sm text-muted-foreground">{item.description}</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground">{item.description}</p> {/* Responsive text */}
                   </div>
-                  {/* Optional: Add to cart button or similar action */}
-                  {/* <Button variant="outline" size="sm" className="mt-4 self-start">Add to Order</Button> */}
                 </CardContent>
               </Card>
             ))}

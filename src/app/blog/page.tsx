@@ -50,42 +50,41 @@ const blogPosts = [
 
 export default function BlogPage() {
   return (
-    <div className="space-y-16 md:space-y-20"> {/* Increased spacing */}
+    <div className="space-y-12 md:space-y-20"> {/* Adjusted base spacing */}
       <section className="text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 font-heading text-secondary">Ganesh Bhel Blog</h1>
-        <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 font-heading text-secondary">Ganesh Bhel Blog</h1> {/* Responsive heading */}
+        <p className="text-base sm:text-lg text-foreground/80 max-w-2xl mx-auto px-2 sm:px-0"> {/* Responsive text, padding */}
           Insights into Indian street food culture, our hygiene practices, recipe innovations, and more.
         </p>
       </section>
 
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> {/* Increased gap */}
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"> {/* Responsive grid and gap */}
         {blogPosts.map((post) => (
-          <Card key={post.id} className="flex flex-col overflow-hidden card-hover-effect group"> {/* Applied hover effect, group */}
-            <div className="relative w-full h-52 overflow-hidden"> {/* Increased height, added overflow hidden */}
+          <Card key={post.id} className="flex flex-col overflow-hidden card-hover-effect group">
+            <div className="relative w-full h-48 sm:h-52 overflow-hidden"> {/* Responsive height */}
                <Image
                  src={post.imageUrl}
                  alt={post.title}
                  layout="fill"
                  objectFit="cover"
-                 className="transition-transform duration-300 ease-in-out group-hover:scale-105" // Added scale effect
+                 className="transition-transform duration-300 ease-in-out group-hover:scale-105"
                  data-ai-hint={post.dataAiHint}
                />
             </div>
-            <CardHeader className="pb-3"> {/* Adjusted padding */}
-              <CardTitle className="text-xl font-heading text-primary line-clamp-2 group-hover:text-accent transition-colors"> {/* Title hover effect */}
+            <CardHeader className="pb-2 sm:pb-3 pt-4 sm:pt-5"> {/* Responsive padding */}
+              <CardTitle className="text-lg sm:text-xl font-heading text-primary line-clamp-2 group-hover:text-accent transition-colors"> {/* Responsive title */}
                   {post.title}
               </CardTitle>
-              <CardDescription className="text-xs text-muted-foreground flex flex-wrap items-center gap-x-4 gap-y-1 pt-2"> {/* Wrap metadata, adjust gap/padding */}
-                 <span className="flex items-center gap-1.5"><Calendar size={14} /> {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span> {/* Formatted date */}
-                 <span className="flex items-center gap-1.5"><User size={14} /> {post.author}</span>
+              <CardDescription className="text-xs text-muted-foreground flex flex-wrap items-center gap-x-3 gap-y-1 pt-1.5 sm:pt-2"> {/* Adjusted gap/padding */}
+                 <span className="flex items-center gap-1"><Calendar size={14} /> {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+                 <span className="flex items-center gap-1"><User size={14} /> {post.author}</span>
               </CardDescription>
             </CardHeader>
-            <CardContent className="flex-grow pt-0 pb-4"> {/* Adjusted padding */}
+            <CardContent className="flex-grow pt-0 pb-3 sm:pb-4"> {/* Responsive padding */}
               <p className="text-sm text-foreground/80 line-clamp-3">{post.excerpt}</p>
             </CardContent>
-            <CardFooter className="pt-0"> {/* Adjusted padding */}
-              {/* Link to full blog post page */}
-              <Button variant="link" asChild className="p-0 h-auto text-accent font-medium group-hover:underline">
+            <CardFooter className="pt-0 pb-4 sm:pb-5"> {/* Responsive padding */}
+              <Button variant="link" asChild className="p-0 h-auto text-accent font-medium group-hover:underline text-sm"> {/* Responsive text */}
                 <Link href={`/blog/${post.slug}`} className="flex items-center">
                     Read More <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
@@ -96,7 +95,7 @@ export default function BlogPage() {
       </section>
 
        {/* Placeholder for pagination */}
-       <div className="text-center mt-10">
+       <div className="text-center mt-8 md:mt-10"> {/* Adjusted margin */}
          <Button variant="outline" disabled className="rounded-full">Load More Posts</Button>
        </div>
     </div>
