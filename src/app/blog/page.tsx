@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
-import { Calendar, User } from "lucide-react";
+import { Calendar, User, ArrowRight } from "lucide-react"; // Added ArrowRight
 
 // Sample blog post data - replace with actual data fetching
 const blogPosts = [
@@ -50,7 +50,7 @@ const blogPosts = [
 
 export default function BlogPage() {
   return (
-    <div className="space-y-12">
+    <div className="space-y-16 md:space-y-20"> {/* Increased spacing */}
       <section className="text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-4 font-heading text-secondary">Ganesh Bhel Blog</h1>
         <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
@@ -58,41 +58,46 @@ export default function BlogPage() {
         </p>
       </section>
 
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> {/* Increased gap */}
         {blogPosts.map((post) => (
-          <Card key={post.id} className="flex flex-col overflow-hidden shadow-lg subtle-hover-grow border-secondary/10 transition-all duration-300 hover:shadow-xl">
-            <div className="relative w-full h-48">
+          <Card key={post.id} className="flex flex-col overflow-hidden card-hover-effect group"> {/* Applied hover effect, group */}
+            <div className="relative w-full h-52 overflow-hidden"> {/* Increased height, added overflow hidden */}
                <Image
                  src={post.imageUrl}
                  alt={post.title}
                  layout="fill"
                  objectFit="cover"
+                 className="transition-transform duration-300 ease-in-out group-hover:scale-105" // Added scale effect
                  data-ai-hint={post.dataAiHint}
                />
             </div>
-            <CardHeader>
-              <CardTitle className="text-xl font-heading text-primary line-clamp-2">{post.title}</CardTitle>
-              <CardDescription className="text-xs text-muted-foreground flex items-center gap-4 pt-1">
-                 <span className="flex items-center gap-1"><Calendar size={14} /> {new Date(post.date).toLocaleDateString()}</span>
-                 <span className="flex items-center gap-1"><User size={14} /> {post.author}</span>
+            <CardHeader className="pb-3"> {/* Adjusted padding */}
+              <CardTitle className="text-xl font-heading text-primary line-clamp-2 group-hover:text-accent transition-colors"> {/* Title hover effect */}
+                  {post.title}
+              </CardTitle>
+              <CardDescription className="text-xs text-muted-foreground flex flex-wrap items-center gap-x-4 gap-y-1 pt-2"> {/* Wrap metadata, adjust gap/padding */}
+                 <span className="flex items-center gap-1.5"><Calendar size={14} /> {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span> {/* Formatted date */}
+                 <span className="flex items-center gap-1.5"><User size={14} /> {post.author}</span>
               </CardDescription>
             </CardHeader>
-            <CardContent className="flex-grow">
+            <CardContent className="flex-grow pt-0 pb-4"> {/* Adjusted padding */}
               <p className="text-sm text-foreground/80 line-clamp-3">{post.excerpt}</p>
             </CardContent>
-            <CardFooter>
-              {/* Link to full blog post page - Assuming structure /blog/[slug] */}
-              <Button variant="link" asChild className="p-0 h-auto text-accent">
-                <Link href={`/blog/${post.slug}`}>Read More &rarr;</Link>
+            <CardFooter className="pt-0"> {/* Adjusted padding */}
+              {/* Link to full blog post page */}
+              <Button variant="link" asChild className="p-0 h-auto text-accent font-medium group-hover:underline">
+                <Link href={`/blog/${post.slug}`} className="flex items-center">
+                    Read More <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
               </Button>
             </CardFooter>
           </Card>
         ))}
       </section>
 
-       {/* Placeholder for potential pagination or load more */}
-       <div className="text-center mt-8">
-         <Button variant="outline" disabled>Load More Posts</Button>
+       {/* Placeholder for pagination */}
+       <div className="text-center mt-10">
+         <Button variant="outline" disabled className="rounded-full">Load More Posts</Button>
        </div>
     </div>
   );

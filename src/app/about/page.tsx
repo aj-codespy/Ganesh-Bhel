@@ -15,7 +15,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-16 md:space-y-20"> {/* Increased spacing */}
       <section className="text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-4 font-heading text-secondary">Our Journey</h1>
         <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
@@ -23,8 +23,8 @@ export default function AboutPage() {
         </p>
       </section>
 
-      <section className="grid md:grid-cols-2 gap-8 items-center">
-         <div className="relative w-full h-80 rounded-lg overflow-hidden shadow-lg">
+      <section className="grid md:grid-cols-2 gap-10 items-center"> {/* Increased gap */}
+         <div className="relative w-full h-96 rounded-lg overflow-hidden shadow-lg"> {/* Increased height */}
             <Image
               src="https://picsum.photos/600/400"
               alt="Founder Ramesh Gudmewar"
@@ -33,7 +33,7 @@ export default function AboutPage() {
               data-ai-hint="indian founder portrait restaurant kitchen"
             />
          </div>
-        <Card className="bg-muted/30">
+        <Card className="bg-card card-hover-effect"> {/* Use card bg, added hover effect */}
           <CardHeader>
             <CardTitle className="text-2xl font-heading text-primary">Founder's Vision</CardTitle>
           </CardHeader>
@@ -41,20 +41,20 @@ export default function AboutPage() {
             <p>
               Ramesh Gudmewar envisioned bringing hygienic, delicious, and authentic street food to everyone. His dedication to quality and innovation laid the foundation for what Ganesh Bhel is today.
             </p>
-            <p className="italic">
+            <blockquote className="border-l-4 border-primary pl-4 italic text-foreground/70"> {/* Use blockquote for styling */}
               "We started with a simple dream: to share the joy of authentic Pune chaat, prepared with care and the best ingredients. Our journey continues with the same passion." - Ramesh Gudmewar
-            </p>
+            </blockquote>
           </CardContent>
         </Card>
       </section>
 
-      <section>
-        <h2 className="text-3xl font-bold text-center mb-8 font-heading text-secondary">Milestones Through the Years</h2>
+      <section className="py-10 bg-muted/50 rounded-lg"> {/* Added subtle background and padding */}
+        <h2 className="text-3xl font-bold text-center mb-10 font-heading text-primary">Milestones Through the Years</h2> {/* Increased margin */}
         <BrandTimeline events={timelineEvents} />
       </section>
 
-       <section className="grid md:grid-cols-2 gap-8 items-center">
-         <Card className="bg-muted/30 order-2 md:order-1">
+       <section className="grid md:grid-cols-2 gap-10 items-center"> {/* Increased gap */}
+         <Card className="bg-card card-hover-effect order-2 md:order-1"> {/* Use card bg, added hover effect */}
           <CardHeader>
             <CardTitle className="text-2xl font-heading text-primary">Quality & Hygiene</CardTitle>
           </CardHeader>
@@ -62,7 +62,7 @@ export default function AboutPage() {
             <p>
              Our commitment to quality is unwavering. We are ISO-certified and meticulously follow strict hygiene protocols, including the use of mineral water in all our preparations, ensuring a safe and delightful experience for our customers.
             </p>
-             <ul className="list-disc list-inside space-y-1">
+             <ul className="list-disc list-inside space-y-1 text-foreground/80"> {/* Adjusted text color */}
                 <li>ISO 9001:2015 Certified</li>
                 <li>Use of Mineral Water</li>
                 <li>Regular Quality Checks</li>
@@ -70,7 +70,7 @@ export default function AboutPage() {
             </ul>
           </CardContent>
         </Card>
-         <div className="relative w-full h-80 rounded-lg overflow-hidden shadow-lg order-1 md:order-2">
+         <div className="relative w-full h-96 rounded-lg overflow-hidden shadow-lg order-1 md:order-2"> {/* Increased height */}
             <Image
               src="https://picsum.photos/600/401" // Slightly different dimensions
               alt="Quality Check Process"

@@ -13,39 +13,39 @@ h1, h2, h3, h4, h5, h6 {
 
 @layer base {
   :root {
-    --background: 30 100% 98%; /* Ivory slightly tinted */
-    --foreground: 30 6% 20%; /* Charcoal Gray */
+    --background: 30 100% 99%; /* Lighter Ivory */
+    --foreground: 30 6% 15%; /* Slightly softer Charcoal */
 
-    --card: 30 100% 98%;
-    --card-foreground: 30 6% 20%;
+    --card: 30 100% 99%;
+    --card-foreground: 30 6% 15%;
 
-    --popover: 30 100% 98%;
-    --popover-foreground: 30 6% 20%;
+    --popover: 30 100% 99%;
+    --popover-foreground: 30 6% 15%;
 
     --primary: 30 100% 60%; /* Saffron #FF9933 */
-    --primary-foreground: 0 0% 100%; /* White for contrast */
+    --primary-foreground: 0 0% 100%; /* White */
 
     --secondary: 0 100% 25%; /* Maroon #800000 */
-    --secondary-foreground: 30 100% 98%; /* Ivory for contrast */
+    --secondary-foreground: 30 100% 98%; /* Ivory */
 
-    --muted: 60 100% 90%; /* Lighter Mint Green */
-    --muted-foreground: 60 30% 40%; /* Darker Mint Green */
+    --muted: 40 50% 94%; /* Softer, slightly desaturated beige/yellow */
+    --muted-foreground: 40 10% 45%; /* Darker, muted tone for text on muted bg */
 
     --accent: 30 100% 65%; /* Vibrant Orange #FFB347 */
-    --accent-foreground: 30 6% 20%; /* Charcoal Gray */
+    --accent-foreground: 30 6% 10%; /* Dark Charcoal for contrast on accent */
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
+    --border: 30 10% 88%; /* Slightly darker border */
+    --input: 30 10% 92%; /* Slightly lighter input background */
     --ring: 30 100% 60%; /* Saffron for focus rings */
 
-    /* Chart Colors (adjust if needed, using palette) */
+    /* Chart Colors */
     --chart-1: 30 100% 60%; /* Saffron */
     --chart-2: 0 100% 25%; /* Maroon */
     --chart-3: 54 100% 50%; /* Turmeric Yellow #FFD700 */
-    --chart-4: 120 100% 80%; /* Mint Green #98FF98 */
+    --chart-4: 120 70% 75%; /* Slightly adjusted Mint Green */
     --chart-5: 30 100% 65%; /* Vibrant Orange */
 
     --radius: 0.5rem;
@@ -54,63 +54,63 @@ h1, h2, h3, h4, h5, h6 {
     --font-heading: "Playfair Display", serif;
     --font-body: "Open Sans", sans-serif;
 
-    /* Sidebar colors (can keep default or adjust based on main theme) */
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar colors (adjusted slightly for harmony) */
+    --sidebar-background: 30 20% 97%; /* Lighter gray/beige */
+    --sidebar-foreground: 30 6% 25%;
+    --sidebar-primary: 30 100% 60%; /* Saffron */
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 30 50% 90%; /* Lighter accent bg */
+    --sidebar-accent-foreground: 30 100% 30%; /* Darker accent text */
+    --sidebar-border: 30 10% 85%;
+    --sidebar-ring: 30 100% 60%;
   }
 
   .dark {
-    /* Define dark theme colors based on the light theme, inverting/adjusting as needed */
-    --background: 30 6% 10%; /* Dark Charcoal */
-    --foreground: 30 100% 98%; /* Ivory */
+    /* Dark theme adjustments for aesthetics */
+    --background: 30 6% 8%; /* Very dark Charcoal */
+    --foreground: 30 100% 97%; /* Lighter Ivory */
 
-    --card: 30 6% 12%;
-    --card-foreground: 30 100% 98%;
+    --card: 30 6% 10%; /* Slightly lighter than background */
+    --card-foreground: 30 100% 97%;
 
-    --popover: 30 6% 10%;
-    --popover-foreground: 30 100% 98%;
+    --popover: 30 6% 7%; /* Even darker */
+    --popover-foreground: 30 100% 97%;
 
-    --primary: 30 100% 60%; /* Saffron */
-    --primary-foreground: 30 6% 10%; /* Dark Charcoal for contrast */
+    --primary: 30 95% 62%; /* Slightly brighter Saffron */
+    --primary-foreground: 30 6% 10%;
 
-    --secondary: 0 60% 50%; /* Lighter Maroon for dark mode */
-    --secondary-foreground: 30 100% 98%; /* Ivory */
+    --secondary: 0 70% 55%; /* Lighter, slightly more saturated Maroon */
+    --secondary-foreground: 30 100% 98%;
 
-    --muted: 120 20% 20%; /* Darker Mint Green */
-    --muted-foreground: 120 50% 70%; /* Lighter Mint Green */
+    --muted: 30 10% 20%; /* Dark, desaturated tone */
+    --muted-foreground: 30 15% 70%; /* Lighter text for contrast */
 
-    --accent: 30 100% 65%; /* Vibrant Orange */
-    --accent-foreground: 30 6% 10%; /* Dark Charcoal */
+    --accent: 30 90% 68%; /* Slightly brighter Orange */
+    --accent-foreground: 30 6% 10%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 70% 50%; /* Adjusted destructive */
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 30 100% 60%; /* Saffron */
+    --border: 30 5% 25%; /* Softer border */
+    --input: 30 5% 22%;
+    --ring: 30 95% 62%; /* Saffron */
 
-    /* Chart Colors - adjust for dark mode */
-    --chart-1: 30 100% 65%; /* Lighter Saffron */
-    --chart-2: 0 60% 55%;  /* Lighter Maroon */
-    --chart-3: 54 90% 60%; /* Lighter Turmeric */
-    --chart-4: 120 60% 60%; /* Adjusted Mint Green */
-    --chart-5: 30 100% 70%; /* Lighter Vibrant Orange */
+    /* Chart Colors - adjusted for dark mode */
+    --chart-1: 30 95% 65%;
+    --chart-2: 0 70% 60%;
+    --chart-3: 54 85% 60%;
+    --chart-4: 120 60% 65%;
+    --chart-5: 30 90% 70%;
 
     /* Sidebar colors for dark mode */
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 30 6% 12%; /* Consistent dark sidebar */
+    --sidebar-foreground: 30 10% 80%;
+    --sidebar-primary: 30 95% 62%; /* Saffron */
+    --sidebar-primary-foreground: 30 6% 10%;
+    --sidebar-accent: 30 10% 25%; /* Darker accent bg */
+    --sidebar-accent-foreground: 30 15% 90%; /* Lighter accent text */
+    --sidebar-border: 30 5% 20%;
+    --sidebar-ring: 30 95% 62%;
   }
 }
 
@@ -120,18 +120,24 @@ h1, h2, h3, h4, h5, h6 {
   }
   body {
     @apply bg-background text-foreground;
-    /* Apply body font globally using Tailwind's default sans font which maps to --font-body */
+    /* Apply body font globally */
     @apply font-sans;
   }
   h1, h2, h3, h4, h5, h6 {
-    /* Apply heading font directly using the CSS variable */
+    /* Apply heading font directly */
     font-family: var(--font-heading);
+    @apply tracking-tight; /* Add subtle tracking for headings */
   }
 }
 
-/* Subtle animation on hover for interactive elements */
+/* Refined hover effect for cards */
 @layer components {
+  .card-hover-effect {
+    @apply transition-all duration-300 ease-in-out border border-transparent hover:border-primary/50 hover:shadow-lg;
+  }
+  /* Remove or adjust the old grow effect if not desired */
   .subtle-hover-grow {
-    @apply transition-transform duration-200 ease-in-out hover:scale-105;
+    /* @apply transition-transform duration-200 ease-in-out hover:scale-105; */
+     @apply transition-all duration-300 ease-in-out hover:shadow-lg; /* Replace grow with shadow */
   }
 }
